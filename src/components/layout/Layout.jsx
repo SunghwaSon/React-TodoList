@@ -1,10 +1,10 @@
 import React from "react";
 import "./style.css";
 
-function Layout({Children}) {
+function Layout({children}) {
   return (
     <div className='layout'>
-      {Children}
+      {children}
     </div>
   );
 }
