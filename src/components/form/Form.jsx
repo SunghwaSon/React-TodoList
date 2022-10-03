@@ -6,13 +6,13 @@ const Form = ({ title, content, onChange, onCreate }) => {
     <div>
       <div className='add-form'>
         <div className='input-group'>
-          <label>제목</label>
+          <label className='form-label'>제목</label>
           <input type="text" className='add-input'
             name="title" 
             onChange={onChange} 
             value={title} 
           />
-          <label>내용</label>
+          <label className='form-label'>내용</label>
           <input type="text" className='add-input'
             name="content"
             onChange={onChange}

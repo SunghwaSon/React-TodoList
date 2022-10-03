@@ -6,7 +6,7 @@ function List( { todos, onRemove }) {
   return (
   <div className='list-container'>
         <h2 class="list-title">Working.. 🔥</h2>   
-    <div>
+    <div className='list-wrapper'>
       {todos.map(todo => (
         <Todo 
           todo={todo} 
@@ -15,8 +15,10 @@ function List( { todos, onRemove }) {
           />
       ))}
     </div>
-
         <h2 class="list-title">Done..! 🎉</h2>
+        <div className='list-wrapper'>
+          
+        </div>
         {/* 완료버튼 눌렀을 때 들어와야 하는 곳 */}
   </div> 
   )}
