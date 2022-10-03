@@ -61,8 +61,7 @@ function TodoList() {
   };
   
   return (
-    <>
-      <Layout />
+    <Layout>
       <Header />
       <Form
         title={title}
@@ -70,9 +69,8 @@ function TodoList() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <Todo />
       <List todos={todos} onRemove={onRemove} />
-    </>
+    </Layout>
   );
 }
 

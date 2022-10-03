@@ -20,18 +20,6 @@ function Todo ({ todo, onRemove }) {
   );
 }
 
-function List({ todos, onRemove}) {
-  return (
-    <div>
-      {todos.map(todo => (
-        <Todo 
-          todo={todo} 
-          key={todo.id} 
-          onRemove={onRemove} 
-          />
-      ))}
-    </div>
-  );
-}
 
-export default List;
+
+export default Todo;
