@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function Todo ({ todo, onRemove }) {
+function Todo ({ todo, onRemove, onToggle }) {
   return(
     <>
     <div className='list-wrapper'>
@@ -12,7 +12,11 @@ function Todo ({ todo, onRemove }) {
           </div>
           <div className='button-set'>
             <button onClick={() => onRemove(todo.id)} className="todo-delete-button button">삭제하기</button>
-            <button className="todo-complete-button button">완료</button>
+            {todo.isDone === false ? (
+              <button onClick={() => onToggle(todo.id)} className="todo-complete-button button">완료</button>
+            ) : (
+              <button onClick={() => onToggle(todo.id)} className="todo-complete-button button">취소</button>
+            )}
           </div>
       </div>
     </div>  

@@ -3,7 +3,7 @@ import Form from "../components/form/Form";
 import Header from "../components/header/Header";
 import Layout from "../components/layout/Layout";
 import List from "../components/list/List";
-import Todo from "../components/todo/Todo";
+// import Todo from "../components/todo/Todo";
 
 function TodoList() {
   const [inputs, setInputs] = useState({
@@ -19,22 +19,22 @@ function TodoList() {
       [name]: value // name 키를 가진 값을 value 로 설정
     });
   };
-
   const [todos, setTodos] = useState([
     {
       id: 1,
       title: "리액트를 공부하기",
       content: "리액트 기초를 공부해봅시다.",
-      active: true
+      isDone: true
     },
 
     {
       id: 2,
       title: "리액트를 연습하기",
       content: "리액트 연습을 해봅시다.",
-      active: false
+      isDone: false
     }
   ]);
+  console.log(todos)
 
   const nextId = useRef(3);
 
@@ -42,15 +42,16 @@ function TodoList() {
     const todo = {
       id: nextId.current,
       title,
-      content
+      content,
+      isDone: false
     };
-    setTodos(todos.concat(todo));
-
+    
+    setTodos([...todos, todo]);
+    
     setInputs({
       title: "",
       content: ""
     });
-    console.log(nextId.current);
     nextId.current += 1;
   };
 
@@ -58,6 +59,15 @@ function TodoList() {
     // user.id 가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
     // = user.id 가 id 인 것을 제거함
     setTodos(todos.filter(todo => todo.id !== id));
+  };
+
+  const onToggle = (id) => {
+    //todo.id가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
+    // = todo.id가 id인 것을 제거함
+    setTodos(todos.map(
+      todo => todo.id === id 
+      ? {...todo, isDone: !todo.isDone} : todo
+    ));
   };
   
   return (
@@ -69,7 +79,7 @@ function TodoList() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <List todos={todos} onRemove={onRemove} />
+      <List todos={todos} onRemove={onRemove} onToggle={onToggle}/>
     </Layout>
   );
 }

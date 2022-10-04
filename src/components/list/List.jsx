@@ -2,25 +2,36 @@ import React from "react";
 import Todo from '../todo/Todo';
 import "./style.css";
 
-function List( { todos, onRemove }) {
+function List( { todos, onRemove, onToggle }) {
   return (
   <div className='list-container'>
-        <h2 class="list-title">Working.. 🔥</h2>   
-    <div className='list-wrapper'>
-      {todos.map(todo => (
+        <h2 className="list-title">Working.. 🔥</h2>   
+      <div className='list-wrapper'>
+      {todos
+      .filter((todo) => todo.isDone === false)
+      .map(todo => (
         <Todo 
           todo={todo} 
           key={todo.id} 
           onRemove={onRemove} 
+          onToggle={onToggle}
           />
       ))}
     </div>
-        <h2 class="list-title">Done..! 🎉</h2>
-        <div className='list-wrapper'>
-          
-        </div>
-        {/* 완료버튼 눌렀을 때 들어와야 하는 곳 */}
+        <h2 className="list-title">Done..! 🎉</h2>
+      <div className='list-wrapper'>
+        {todos
+      .filter((todo) => todo.isDone === true)
+      .map(todo => (
+        <Todo 
+          todo={todo} 
+          key={todo.id} 
+          onRemove={onRemove} 
+          onToggle={onToggle}
+          /> 
+      ))}
+      </div>
   </div> 
-  )}
+)}      
 
 export default List;
