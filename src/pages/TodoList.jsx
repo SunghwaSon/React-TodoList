@@ -65,8 +65,8 @@ function TodoList() {
     //todo.id가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
     // = todo.id가 id인 것을 제거함
     setTodos(todos.map(
-      todo => todo.id === id 
-      ? {...todo, isDone: !todo.isDone} : todo
+      todo => todo.id === id? 
+      {...todo, isDone: !todo.isDone} : todo
     ));
   };
   
