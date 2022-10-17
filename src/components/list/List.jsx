@@ -9,6 +9,7 @@ function List( { todos, onRemove, onToggle }) {
       <div className='list-wrapper'>
       {todos
       .filter((todo) => todo.isDone === false)
+//      = .filter((todo) => !todo.isDone)
       .map(todo => (
         <Todo 
           todo={todo} 
@@ -22,6 +23,7 @@ function List( { todos, onRemove, onToggle }) {
       <div className='list-wrapper'>
         {todos
       .filter((todo) => todo.isDone === true)
+//      = .filter((todo) => todo.isDone)
       .map(todo => (
         <Todo 
           todo={todo} 
