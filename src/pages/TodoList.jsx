@@ -62,13 +62,16 @@ function TodoList() {
   };
 
   const onToggle = (id) => {
-    //todo.id가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
-    // = todo.id가 id인 것을 제거함
     setTodos(todos.map(
       todo => todo.id === id? 
       {...todo, isDone: !todo.isDone} : todo
     ));
   };
+  // map => 기존 배열을 통해 새로운 배열을 만들어내는 함수 
+  // id 비교 => 넘겨 받은 id 와 기존 todos 에 있는 id 와 비교.
+  // id 가 같다면 => { ...todo } 를 이용하여 기존 객체를 복사. 
+  //그리고 { ...todo, isDone: !todo.isDone } 을 이용하여 기존 객체의 isDone 을 한번 뒤집어 토글해준 값으로 덮어씌움.
+  // id 가 다르다면 => 아무런 변화도 주지 않음.
   
   return (
     <Layout>
