@@ -17,7 +17,7 @@ function Todo ({ todo, onRemove, onToggle }) {
             ) : (
               <button onClick={() => onToggle(todo.id)} className="todo-complete-button button">취소</button>
 
-//              = {item.isDone ? "취소" : "완료"}
+             // = {item.isDone ? "취소" : "완료"}
             )}
           </div>
       </div>
